@@ -22,13 +22,18 @@ spring:
         - id: COMMENT-SERVICE
           uri: http://localhost:3015
           predicates:
-              - Path=//posts/{postId}/comments/**
+              - Path=/posts/{postId}/comments/**
 
 
         - id: LIKE-SERVICE
           uri: http://localhost:3020
           predicates:
               - Path=/postsOrComments/{postOrCommentId}/**
+
+        - id: AUTHENTICATION-AUTHORIZATION-SERVICE
+          uri: http://localhost:3000
+          predicates:
+            - Path=/auth/**
 
 eureka:
   client:
