@@ -13,16 +13,18 @@ spring:
           predicates:
             - Path=/users/**
 
+        - id: COMMENT-SERVICE
+          uri: http://localhost:3015
+          predicates:
+            - Path=/posts/{postId}/comments/**
+
+
         - id: POST-SERVICE
           uri: http://localhost:3010
           predicates:
             - Path=/posts/**
 
 
-        - id: COMMENT-SERVICE
-          uri: http://localhost:3015
-          predicates:
-              - Path=/posts/{postId}/comments/**
 
 
         - id: LIKE-SERVICE
