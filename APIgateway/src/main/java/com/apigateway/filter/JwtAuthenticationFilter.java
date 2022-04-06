@@ -49,6 +49,7 @@ public class JwtAuthenticationFilter implements GatewayFilter {
 
 			try {
 				jwtUtil.validateToken(token);
+				
 			} catch (JwtTokenMalformedException | JwtTokenMissingException e) {
 
 
@@ -58,6 +59,7 @@ public class JwtAuthenticationFilter implements GatewayFilter {
 
 				return response.setComplete();
 			}
+
 
 			Claims claims = jwtUtil.getClaims(token);
 			exchange.getRequest().mutate().header("id", String.valueOf(claims.get("id"))).build();

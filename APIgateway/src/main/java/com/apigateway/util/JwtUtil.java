@@ -17,8 +17,7 @@ import io.jsonwebtoken.UnsupportedJwtException;
 
 @Component
 public class JwtUtil {
-	@Autowired
-	Logger log;
+
 
 
 	@Value("${jwt.secret}")
@@ -29,7 +28,7 @@ public class JwtUtil {
 			return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody();
 
 		} catch (Exception e) {
-			log.info(String.format("%s => %s",e.getMessage() , e));
+			System.out.println(e.getMessage() + " => " + e);
 
 
 		}
